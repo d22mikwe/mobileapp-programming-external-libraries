@@ -1,4 +1,6 @@
 package com.example.externallibraries;
 
-public class ImageActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ImageActivity extends AppCompatActivity{
 }
