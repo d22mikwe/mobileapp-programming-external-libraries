@@ -3,13 +3,18 @@ package com.example.externallibraries;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.load.model.GlideUrl;
+import com.bumptech.glide.load.model.LazyHeaders;
 import com.bumptech.glide.module.AppGlideModule;
+import com.bumptech.glide.request.target.Target;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -20,48 +25,52 @@ public class MainActivity extends AppCompatActivity {
     Button button2;
     Button button3;
     Button button4;
-    Intent intent;
+    ImageView imgV;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        intent = new Intent(MainActivity.this, ImageActivity.class);
+        imgV = findViewById(R.id.imageView);
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4);
 
+
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String URL = "https://i.imgur.com/gpyUO76.png";
+                newScreen(URL);
             }
         });
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String URL = "https://media3.giphy.com/media/VgxzQM2GYuKQXJgquJ/giphy.gif";
+                newScreen(URL);
             }
         });
 
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String URL = "https://media3.giphy.com/media/VgxzQM2GYuKQXJgquJ/giphy.gif";
+                newScreen(URL);
             }
         });
 
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String URL = "https://media3.giphy.com/media/VgxzQM2GYuKQXJgquJ/giphy.gif";
+                newScreen(URL);
             }
         });
     }
 
-    public void newScreen(){
-       startActivity(intent);
-    }
+
 }
