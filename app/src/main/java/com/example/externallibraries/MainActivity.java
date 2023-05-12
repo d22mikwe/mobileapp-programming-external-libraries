@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void newImage(String url){
-        Glide.with(this).asBitmap().load(url).override(2000, 2000).into(imgV);
+        Glide.with(this).asBitmap().load(url).override(1000, 1000).into(imgV);
 
     }
 }
