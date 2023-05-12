@@ -43,34 +43,37 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String URL = "https://i.imgur.com/gpyUO76.png";
-                newScreen(URL);
+                newImage(URL);
             }
         });
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String URL = "https://media3.giphy.com/media/VgxzQM2GYuKQXJgquJ/giphy.gif";
-                newScreen(URL);
+                String URL = "https://i.imgur.com/vAx5jMQ.png";
+                newImage(URL);
             }
         });
 
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String URL = "https://media3.giphy.com/media/VgxzQM2GYuKQXJgquJ/giphy.gif";
-                newScreen(URL);
+                String URL = "https://i.imgur.com/4Itj2wp.png";
+                newImage(URL);
             }
         });
 
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String URL = "https://media3.giphy.com/media/VgxzQM2GYuKQXJgquJ/giphy.gif";
-                newScreen(URL);
+                String URL = "https://i.imgur.com/K5uiNRp.png";
+                newImage(URL);
             }
         });
     }
 
+    public void newImage(String url){
+        Glide.with(this).asBitmap().load(url).override(2000, 2000).into(imgV);
 
+    }
 }
