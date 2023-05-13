@@ -1,42 +1,43 @@
 
 # Rapport
 
-**Skriv din rapport här!**
+Detta projekt börjades med att jag försökte implementera Picasso biblioteket för att kunna hämta och visa bilder från internet.
+Efter mycket strul med att kunna visa bilder med hög upplösning valde jag att testa Glide biblioteket.
+Samma problem uppstod här också så jag valde att skapa egna låg upplösta bilder som jag laddade upp på näten.
 
-_Du kan ta bort all text som finns sedan tidigare_.
+I början av projektet så lade jag till dependancies för Glide, gav tillstånd för appen att använda internet och även alla Views (Knappar och ImageView) som appen behöver.
+```
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+```
+Efter detta skapade jag variabler för alla Views och kopplade ID't till dem med findViewByID(). 
+Sedan skapade jag en onClickListener för alla 4:a knappar. Inom denna onClick metod så har jag lagt in 4 olika URL:er som sätts in i en string och skickas med som argument
+till en metod som kallas.
+```
+button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String URL = "https://i.imgur.com/gpyUO76.png";
+                newImage(URL);
+            }
+        });
+```
 
-## Följande grundsyn gäller dugga-svar:
-
-- Ett kortfattat svar är att föredra. Svar som är längre än en sida text (skärmdumpar och programkod exkluderat) är onödigt långt.
-- Svaret skall ha minst en snutt programkod.
-- Svaret skall inkludera en kort övergripande förklarande text som redogör för vad respektive snutt programkod gör eller som svarar på annan teorifråga.
-- Svaret skall ha minst en skärmdump. Skärmdumpar skall illustrera exekvering av relevant programkod. Eventuell text i skärmdumpar måste vara läsbar.
-- I de fall detta efterfrågas, dela upp delar av ditt svar i för- och nackdelar. Dina för- respektive nackdelar skall vara i form av punktlistor med kortare stycken (3-4 meningar).
-
-Programkod ska se ut som exemplet nedan. Koden måste vara korrekt indenterad då den blir lättare att läsa vilket gör det lättare att hitta syntaktiska fel.
+Till sist har jag skapat en metod som använder sig av Glide biblioteket. 
+För att få bilderna att visas måste man skapa en ImageView och koppla en imageView variabel till den.
+Sedan anger man vilken URL som ska hämtas och inom vilken ImageView den ska visas på.
 
 ```
-function errorCallback(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            // Geolocation API stöds inte, gör något
-            break;
-        case error.POSITION_UNAVAILABLE:
-            // Misslyckat positionsanrop, gör något
-            break;
-        case error.UNKNOWN_ERROR:
-            // Okänt fel, gör något
-            break;
-    }
+public void newImage(String url) {
+    Glide.with(this).asBitmap().load(url).override(1000, 1000).into(imgV);
+
 }
 ```
 
-Bilder läggs i samma mapp som markdown-filen.
 
-![](android.png)
+![](Pic1.png)
+![](Pic2.png)
+![](Pic3.png)
+![](Pic4.png)
+![](Pic5.png)
 
-Läs gärna:
-
-- Boulos, M.N.K., Warren, J., Gong, J. & Yue, P. (2010) Web GIS in practice VIII: HTML5 and the canvas element for interactive online mapping. International journal of health geographics 9, 14. Shin, Y. &
-- Wunsche, B.C. (2013) A smartphone-based golf simulation exercise game for supporting arthritis patients. 2013 28th International Conference of Image and Vision Computing New Zealand (IVCNZ), IEEE, pp. 459–464.
-- Wohlin, C., Runeson, P., Höst, M., Ohlsson, M.C., Regnell, B., Wesslén, A. (2012) Experimentation in Software Engineering, Berlin, Heidelberg: Springer Berlin Heidelberg.
